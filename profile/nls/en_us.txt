@@ -13,6 +13,7 @@ ND-THERMOSTAT-NAME = Thermostat Node
 ST-tstat-ST-NAME = Current Temperature
 ST-tstat-CLISPH-NAME = Heat Setpoint
 ST-tstat-CLIMD-NAME = Thermostat Mode
+ST-tstat-CLIHCS-NAME = Heat State
 CMD-tstat-QUERY-NAME = Query
 CMD-tstat-CLISPH-NAME = Heat SetPoint
 CMD-tstat-CLIMD-NAME = Mode

@@ -14,8 +14,12 @@
         <range uom="17" min="41" max="104" step="1" prec="0" />
     </editor>
 
+    <editor id="CLIHCS">
+        <range uom="66" subset="0,1" />
+    </editor>
+
     <editor id="CLIMD">
-        <range uom="67" subset="0-13" />
+        <range uom="67" subset="1,3,13" />
     </editor>
 
     <editor id="TPW">  <!--KW/Hour used-->

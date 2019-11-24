@@ -24,6 +24,7 @@
             <st id="ST" editor="CLITEMP" />
             <st id="CLISPH" editor="CLISPH" />
             <st id="CLIMD" editor="CLIMD" />
+            <st id="CLIHCS" editor="CLIHCS" />
         </sts>
         <cmds>
             <sends />

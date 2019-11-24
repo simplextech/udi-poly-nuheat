@@ -39,9 +39,17 @@ class ThermostatNode(polyinterface.Node):
                         elif stat['operatingMode'] == 2:
                             climd = 1
 
+                        clihcs = 0
+                        if stat['isHeating']:
+                            clihcs = 1
+                        else:
+                            clihcs = 0
+
                         self.setDriver('ST', clitemp, uom=self.temp_uom)
                         self.setDriver('CLISPH', clisph, uom=self.temp_uom)
                         self.setDriver('CLIMD', climd, uom=67)
+                        self.setDriver('CLIHCS', clihcs, uom=66)
+
                     else:
                         polyinterface.LOGGER("Thermostat Serial Number not available")
             else:
@@ -72,7 +80,8 @@ class ThermostatNode(polyinterface.Node):
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 17},
         {'driver': 'CLISPH', 'value': 0, 'uom': 17},
-        {'driver': 'CLIMD', 'value': 0, 'uom': 67}
+        {'driver': 'CLIMD', 'value': 0, 'uom': 67},
+        {'driver': 'CLIHCS', 'value': 0, 'uom': 66}
     ]
 
     id = 'THERMOSTAT'
