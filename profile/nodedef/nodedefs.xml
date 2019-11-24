@@ -1,0 +1,56 @@
+<nodeDefs>
+    <!-- NODE DEF from 5.0 document http://wiki.universal-devices.com/index.php?title=V50_MAIN -->
+    <!-- controller, this must mach the id in your Controller class-->
+    <nodeDef id="controller" nls="ctl">
+        <editors />
+        <sts>
+			<st id="ST" editor="bool" />
+		</sts>
+        <cmds>
+            <sends />
+            <accepts>
+              <cmd id="QUERY" />
+              <cmd id="DISCOVER" />
+<!--              <cmd id="REMOVE_NOTICES_ALL" />-->
+<!--              <cmd id="REMOVE_NOTICE_TEST" />-->
+              <cmd id="UPDATE_PROFILE" />
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="THERMOSTAT" nls="tstat">
+        <editors />
+        <sts>
+            <st id="ST" editor="CLITEMP" />
+            <st id="CLISPH" editor="CLISPH" />
+            <st id="CLIMD" editor="CLIMD" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+                <cmd id="QUERY" />
+                <cmd id="CLISPH">
+                    <p id="" editor="CLISPH" init="CLISPH" />
+                </cmd>
+<!--                <cmd id="CLIMD">-->
+<!--                    <p id="" editor="CLIMD" init="CLIMD" optional="T" />-->
+<!--                </cmd>-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="ENERGYDAY" nls="energyday">
+        <editors />
+        <sts>
+            <st id="ST" editor="TPW" />
+            <st id="GV0" editor="GV0" />
+            <st id="GV1" editor="GV1" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+                <cmd id="QUERY" />
+            </accepts>
+        </cmds>
+    </nodeDef>
+</nodeDefs>

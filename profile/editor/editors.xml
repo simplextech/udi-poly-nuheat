@@ -1,0 +1,33 @@
+<editors>
+    <!-- Boolean -->
+    <editor id="bool">
+        <range uom="2" subset="0,1" />
+    </editor>
+
+    <editor id="CLITEMP">
+        <range uom="4" range="5-40" prec="0" />
+        <range uom="17" range="41-104" prec="0" />
+    </editor>
+
+    <editor id="CLISPH">
+        <range uom="4" min="5" max="40" step="1" prec="0" />
+        <range uom="17" min="41" max="104" step="1" prec="0" />
+    </editor>
+
+    <editor id="CLIMD">
+        <range uom="67" subset="0-13" />
+    </editor>
+
+    <editor id="TPW">  <!--KW/Hour used-->
+        <range uom="33" min="0" max="10000" prec="2" />
+    </editor>
+
+    <editor id="GV0">  <!--Energy Minutes used-->
+        <range uom="45" min="0" max="43830" prec="0" />
+    </editor>
+
+    <editor id="GV1">  <!--Energy Charge KW/Hour-->
+        <range uom="103" min="0" max="10000" prec="2" />
+    </editor>
+
+</editors>
