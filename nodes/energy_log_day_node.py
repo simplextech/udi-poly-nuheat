@@ -17,9 +17,12 @@ class EnergyLogDayNode(polyinterface.Node):
 
     def start(self):
         energy_used = self.NuHeat.get_energy_log_day(self.primary, self.date)
-        self.setDriver('GV0', energy_used[0], uom=45)
-        self.setDriver('ST', energy_used[1], uom=33)
-        self.setDriver('GV1', energy_used[2], uom=103)
+        if energy_used is not None:
+            self.setDriver('GV0', energy_used[0], uom=45)
+            self.setDriver('ST', energy_used[1], uom=33)
+            self.setDriver('GV1', energy_used[2], uom=103)
+        else:
+            polyinterface.LOGGER.error("Energy Log Day Returned: None")
 
     def query(self, command=None):
         self.start()
