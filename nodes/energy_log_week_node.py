@@ -37,6 +37,6 @@ class EnergyLogWeekNode(polyinterface.Node):
         {'driver': 'GV1', 'value': 0, 'uom': 104}
     ]
 
-    id = 'ENERGYDAY'
+    id = 'ENERGYLOG'
 
     commands = {'QUERY': query}

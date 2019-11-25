@@ -30,7 +30,8 @@ class Controller(polyinterface.Controller):
         if self.get_credentials():
             self.check_params()
             if self.refresh_token():
-                self.discover()
+                # self.discover()
+                pass
             else:
                 self.auth_prompt()
         # self.poly.add_custom_config_docs("<b>And this is some custom config data</b>")
@@ -177,6 +178,7 @@ class Controller(polyinterface.Controller):
 
                         self.saveCustomData(cust_data)
                         self.NuHeat = NuHeat(access_token)
+                        self.discover()
                         return True
                     except KeyError as ex:
                         LOGGER.error("get_token Error: " + str(ex))
