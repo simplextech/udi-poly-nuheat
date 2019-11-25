@@ -10,6 +10,7 @@ import requests
 from nodes import ThermostatNode
 from nodes import EnergyLogDayNode
 from nodes import EnergyLogWeekNode
+from nodes import EnergyLogYearNode
 from nuheat import NuHeat
 
 LOGGER = polyinterface.LOGGER
@@ -214,11 +215,14 @@ class Controller(polyinterface.Controller):
             stat_address = stat['serialNumber']
             energy_log_day_address = "eld" + str(stat_address)
             energy_log_week_address = "elw" + str(stat_address)
+            energy_log_year_address = "ely" + str(stat_address)
             self.addNode(ThermostatNode(self, stat_address, stat_address, name, self.NuHeat))
             time.sleep(2)
             self.addNode(EnergyLogDayNode(self, stat_address, energy_log_day_address, "Energy-Day", self.NuHeat))
             time.sleep(2)
             self.addNode(EnergyLogWeekNode(self, stat_address, energy_log_week_address, "Energy-Week", self.NuHeat))
+            time.sleep(2)
+            self.addNode(EnergyLogYearNode(self, stat_address, energy_log_year_address, "Energy-Year", self.NuHeat))
             time.sleep(2)
 
         self.disco = 1

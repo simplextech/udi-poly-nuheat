@@ -118,4 +118,29 @@ class NuHeat:
             else:
                 return None
         except requests.exceptions.RequestException as e:
-            print("NuHeat.get_energy_log_day Error: " + str(e))
+            print("NuHeat.get_energy_log_week Error: " + str(e))
+
+    def get_energy_log_year(self, serial_number, date):
+        energy_log_url = self.api_url + "/EnergyLog/Month/" + serial_number + "/" + date
+        try:
+            r = requests.get(energy_log_url, headers=self.headers)
+            if r.status_code == requests.codes.ok:
+                resp = r.json()
+                monday_is_first_day = resp['mondayIsFirstDay']
+                minutes = 0
+                raw_energy_kw_hour = 0
+                raw_charge_kw_hour = 0
+                for entry in resp['energyUsage']:
+                    minutes += entry['minutes']
+                    raw_energy_kw_hour += entry['energyKWattHour']
+                    raw_charge_kw_hour += entry['chargeKWattHour']
+
+                energy_kw_hour = round(raw_energy_kw_hour, 2)
+                cents_charge_kw_hour = round(raw_charge_kw_hour, 2)
+                usd_charge_kw_hour = self.nuheat_cents_to_dollars(cents_charge_kw_hour)
+                energy = [minutes, energy_kw_hour, usd_charge_kw_hour]
+                return energy
+            else:
+                return None
+        except requests.exceptions.RequestException as e:
+            print("NuHeat.get_energy_log_year Error: " + str(e))
