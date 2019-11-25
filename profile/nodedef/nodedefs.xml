@@ -40,7 +40,7 @@
         </cmds>
     </nodeDef>
 
-    <nodeDef id="ENERGYDAY" nls="energyday">
+    <nodeDef id="ENERGY" nls="energy">
         <editors />
         <sts>
             <st id="ST" editor="TPW" />

@@ -19,8 +19,8 @@ CMD-tstat-CLISPH-NAME = Heat SetPoint
 CMD-tstat-CLIMD-NAME = Mode
 
 # ENERGY Day
-ND-ENERGYDAY-NAME = Energy Day Node
-ST-energyday-ST-NAME = Energy Used
-ST-energyday-GV0-NAME = Energy Minutes
-ST-energyday-GV1-NAME = Energy Cost
-CMD-energyday-QUERY-NAME = Query
+ND-ENERGY-NAME = Energy Day Node
+ST-energy-ST-NAME = Energy Used
+ST-energy-GV0-NAME = Energy Minutes
+ST-energy-GV1-NAME = Energy Cost
+CMD-energy-QUERY-NAME = Query
