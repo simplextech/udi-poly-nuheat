@@ -9,7 +9,7 @@
     "shortPoll": "120",
     "longPoll": "1800",
     "testMode": true,
-    "profile_version": "0.1.23",
+    "profile_version": "0.1.24",
     "credits": [
         {
             "title": "NuHeat: A NodeServer for the NuHeat Signature Thermostat",
