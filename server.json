@@ -7,7 +7,7 @@
     "description": "A NodeServer for the NuHeat Signature Thermostat",
     "notice": "In Development - Use at your own risk",
     "shortPoll": "120",
-    "longPoll": "1800",
+    "longPoll": "900",
     "testMode": true,
     "profile_version": "0.1.24",
     "credits": [
