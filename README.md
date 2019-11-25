@@ -25,6 +25,11 @@ Install from the Polyglot Cloud store.
 This can be done through the NuHeat web interface.
   - [My NuHeat](https://mynuheat.com) Portal
 
+- Timezone configuration is used to get the correct data for Energy Log retrieval.  Enter
+your timezone in the Polyglot configuration based upon your location or close enough
+to be in the same Day.  A list of acceptable timezones is available here
+  - [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
 #### Features
 - Creates Thermostat nodes
 - Creates Energy Log node for the daily usage
