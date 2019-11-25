@@ -9,12 +9,12 @@
     "shortPoll": "120",
     "longPoll": "1800",
     "testMode": true,
-    "profile_version": "0.0.23",
+    "profile_version": "0.1.23",
     "credits": [
         {
             "title": "NuHeat: A NodeServer for the NuHeat Signature Thermostat",
             "author": "Simplex Technology",
-            "version": "0.0.24",
+            "version": "0.1.24",
             "date": "November 21, 2019",
             "source": "https://github.com/simplextech/udi-poly-nuheat",
             "license": "https://github.com/simplextech/udi-poly-nuheat/blob/master/LICENSE"
