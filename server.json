@@ -6,7 +6,7 @@
     "install_cloud": "install_cloud.sh",
     "description": "A NodeServer for the NuHeat Signature Thermostat",
     "notice": "In Development - Use at your own risk",
-    "shortPoll": "120",
+    "shortPoll": "300",
     "longPoll": "900",
     "testMode": true,
     "profile_version": "0.1.24",
