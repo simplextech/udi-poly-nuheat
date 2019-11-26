@@ -6,23 +6,34 @@ except ImportError:
 
 import pytz
 from datetime import datetime
+from nuheat import NuHeat
+
+LOGGER = polyinterface.LOGGER
 
 
 class EnergyLogWeekNode(polyinterface.Node):
-    def __init__(self, controller, primary, address, name, nuheat):
+    # def __init__(self, controller, primary, address, name, nuheat):
+    def __init__(self, controller, primary, address, name):
         super(EnergyLogWeekNode, self).__init__(controller, primary, address, name)
-        self.NuHeat = nuheat
+        # access_token = controller.polyConfig['customData']['access_token']
+        # self.NuHeat = NuHeat(access_token)
+        # self.NuHeat = nuheat
+        self.access_token = None
+        self.NuHeat = None
         self.tz = controller.polyConfig['customParams']['tz']
         self.date = datetime.now(pytz.timezone(self.tz)).strftime('%Y-%m-%d')
 
     def start(self):
+        self.access_token = self.controller.polyConfig['customData']['access_token']
+        self.NuHeat = NuHeat(self.access_token)
+
         energy_used = self.NuHeat.get_energy_log_week(self.primary, self.date)
         if energy_used is not None:
             self.setDriver('GV0', energy_used[0], uom=45)
             self.setDriver('ST', energy_used[1], uom=33)
             self.setDriver('GV1', energy_used[2], uom=103)
         else:
-            polyinterface.LOGGER.error("Energy Log Week Returned: None")
+            LOGGER.error("Energy Log Week Returned: None")
 
     def query(self, command=None):
         self.start()

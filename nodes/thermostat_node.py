@@ -4,14 +4,23 @@ except ImportError:
     import pgc_interface as polyinterface
     CLOUD = True
 
+from nuheat import NuHeat
+
+LOGGER = polyinterface.LOGGER
+
 
 class ThermostatNode(polyinterface.Node):
-    def __init__(self, controller, primary, address, name, nuheat):
+    # def __init__(self, controller, primary, address, name, nuheat):
+    def __init__(self, controller, primary, address, name):
         super(ThermostatNode, self).__init__(controller, primary, address, name)
-        self.NuHeat = nuheat
+        self.access_token = None
+        self.NuHeat = None
         self.temp_uom = controller.temp_uom
+        # self.access_token = controller.polyConfig['customData']['access_token']
 
     def start(self):
+        self.access_token = self.controller.polyConfig['customData']['access_token']
+        self.NuHeat = NuHeat(self.access_token)
         thermostats = self.NuHeat.get_thermostat()
         if thermostats is not None:
             for stat in thermostats:
@@ -40,9 +49,9 @@ class ThermostatNode(polyinterface.Node):
                     self.setDriver('CLIHCS', clihcs, uom=66)
 
                 else:
-                    polyinterface.LOGGER("Thermostat Serial Number not available")
+                    LOGGER.error("Thermostat Serial Number not available")
         else:
-            polyinterface.LOGGER("thermostat_node.Nuheat.get_thermostat: Returned None")
+            LOGGER.error("thermostat_node.Nuheat.get_thermostat: Returned None")
 
     def query(self, command=None):
         self.start()
@@ -60,7 +69,7 @@ class ThermostatNode(polyinterface.Node):
         if _status is not None:
             self.setDriver('CLISPH', val, uom=self.temp_uom)
         else:
-            polyinterface.LOGGER.error("thermostat_node.setpoint_heat: " + str(_status))
+            print("thermostat_node.setpoint_heat: " + str(_status))
 
     # "Hints See: https://github.com/UniversalDevicesInc/hints"
     # hint = [1,2,3,4]
