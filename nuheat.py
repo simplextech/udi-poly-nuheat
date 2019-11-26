@@ -23,6 +23,7 @@ class Controller(polyinterface.Controller):
         # self.poly.onConfig(self.process_config)
         self.server_data = {}
         self.temperature_scale = None
+        self.temp_uom = None
         self.NuHeat = None
         self.tz = None
         self.disco = 0
@@ -208,6 +209,15 @@ class Controller(polyinterface.Controller):
             self.nodes[node].reportDrivers()
 
     def discover(self, *args, **kwargs):
+        account_info = self.NuHeat.get_account()
+        if account_info is not None:
+            self.temperature_scale = account_info['temperatureScale']
+
+            if self.temperature_scale == "Fahrenheit":
+                self.temp_uom = 17
+            else:
+                self.temp_uom = 4
+
         thermostats = self.NuHeat.get_thermostat()
         for stat in thermostats:
             name = stat['name']
