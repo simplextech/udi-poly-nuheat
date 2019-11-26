@@ -12,12 +12,8 @@ LOGGER = polyinterface.LOGGER
 
 
 class EnergyLogWeekNode(polyinterface.Node):
-    # def __init__(self, controller, primary, address, name, nuheat):
     def __init__(self, controller, primary, address, name):
         super(EnergyLogWeekNode, self).__init__(controller, primary, address, name)
-        # access_token = controller.polyConfig['customData']['access_token']
-        # self.NuHeat = NuHeat(access_token)
-        # self.NuHeat = nuheat
         self.access_token = None
         self.NuHeat = None
         self.tz = controller.polyConfig['customParams']['tz']
@@ -26,7 +22,6 @@ class EnergyLogWeekNode(polyinterface.Node):
     def start(self):
         self.access_token = self.controller.polyConfig['customData']['access_token']
         self.NuHeat = NuHeat(self.access_token)
-
         energy_used = self.NuHeat.get_energy_log_week(self.primary, self.date)
         if energy_used is not None:
             self.setDriver('GV0', energy_used[0], uom=45)
