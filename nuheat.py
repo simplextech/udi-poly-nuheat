@@ -21,7 +21,7 @@ class Controller(polyinterface.Controller):
         super(Controller, self).__init__(polyglot)
         self.name = 'NuHeat'
         # self.poly.onConfig(self.process_config)
-        self.access_token = None
+        # self.access_token = None
         self.server_data = {}
         self.temperature_scale = None
         self.temp_uom = None
@@ -135,7 +135,7 @@ class Controller(polyinterface.Controller):
 
                     self.saveCustomData(cust_data)
                     self.NuHeat = NuHeat(access_token)
-                    self.access_token = access_token
+                    # self.access_token = access_token
                     self.remove_notices_all()
                     return True
                 except KeyError as ex:
@@ -181,7 +181,7 @@ class Controller(polyinterface.Controller):
 
                         self.saveCustomData(cust_data)
                         self.NuHeat = NuHeat(access_token)
-                        self.access_token = access_token
+                        # self.access_token = access_token
                         return True
                     except KeyError as ex:
                         LOGGER.error("get_token Error: " + str(ex))
@@ -227,16 +227,12 @@ class Controller(polyinterface.Controller):
             energy_log_day_address = "eld" + str(stat_address)
             energy_log_week_address = "elw" + str(stat_address)
             energy_log_year_address = "ely" + str(stat_address)
-            # self.addNode(ThermostatNode(self, stat_address, stat_address, name, self.NuHeat))
             self.addNode(ThermostatNode(self, stat_address, stat_address, name))
             time.sleep(2)
-            # self.addNode(EnergyLogDayNode(self, stat_address, energy_log_day_address, "Energy-Day", self.NuHeat))
             self.addNode(EnergyLogDayNode(self, stat_address, energy_log_day_address, "Energy-Day"))
             time.sleep(2)
-            # self.addNode(EnergyLogWeekNode(self, stat_address, energy_log_week_address, "Energy-Week", self.NuHeat))
             self.addNode(EnergyLogWeekNode(self, stat_address, energy_log_week_address, "Energy-Week"))
             time.sleep(2)
-            # self.addNode(EnergyLogYearNode(self, stat_address, energy_log_year_address, "Energy-Year", self.NuHeat))
             self.addNode(EnergyLogYearNode(self, stat_address, energy_log_year_address, "Energy-Year"))
             time.sleep(2)
 
