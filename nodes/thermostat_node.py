@@ -10,13 +10,11 @@ LOGGER = polyinterface.LOGGER
 
 
 class ThermostatNode(polyinterface.Node):
-    # def __init__(self, controller, primary, address, name, nuheat):
     def __init__(self, controller, primary, address, name):
         super(ThermostatNode, self).__init__(controller, primary, address, name)
         self.access_token = None
         self.NuHeat = None
         self.temp_uom = controller.temp_uom
-        # self.access_token = controller.polyConfig['customData']['access_token']
 
     def start(self):
         self.access_token = self.controller.polyConfig['customData']['access_token']
