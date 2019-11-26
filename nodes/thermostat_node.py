@@ -9,24 +9,13 @@ class ThermostatNode(polyinterface.Node):
     def __init__(self, controller, primary, address, name, nuheat):
         super(ThermostatNode, self).__init__(controller, primary, address, name)
         self.NuHeat = nuheat
-        # self.temperature_scale = None
         self.temp_uom = controller.temp_uom
 
     def start(self):
-        # account_info = self.NuHeat.get_account()
-        # if account_info is not None:
-        #     self.temperature_scale = account_info['temperatureScale']
-        #
-        #     if self.temperature_scale == "Fahrenheit":
-        #         self.temp_uom = 17
-        #     else:
-        #         self.temp_uom = 4
-
         thermostats = self.NuHeat.get_thermostat()
         if thermostats is not None:
             for stat in thermostats:
                 if stat['serialNumber'] == self.address:
-                    # if self.temperature_scale == "Fahrenheit":
                     if self.temp_uom == 17:
                         clitemp = self.NuHeat.nuheat_celsius_to_fahrenheit(stat['currentTemperature'])
                         clisph = self.NuHeat.nuheat_celsius_to_fahrenheit(stat['setPointTemp'])
