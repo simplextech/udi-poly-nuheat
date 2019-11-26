@@ -21,6 +21,7 @@ class Controller(polyinterface.Controller):
         super(Controller, self).__init__(polyglot)
         self.name = 'NuHeat'
         # self.poly.onConfig(self.process_config)
+        self.access_token = None
         self.server_data = {}
         self.temperature_scale = None
         self.temp_uom = None
