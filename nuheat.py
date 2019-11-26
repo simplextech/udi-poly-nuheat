@@ -195,7 +195,7 @@ class Controller(polyinterface.Controller):
 
     def longPoll(self):
         """
-        The token expires every 1 hour (3600 seconds).  The long Poll is set to 30 minutes by default
+        The token expires every 1 hour (3600 seconds).  The long Poll is set to 15 minutes by default
         and refreshes on Nodeserver start.
         :return:
         """
