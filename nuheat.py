@@ -178,6 +178,7 @@ class Controller(polyinterface.Controller):
 
                         self.saveCustomData(cust_data)
                         self.NuHeat = NuHeat(access_token)
+                        print("=============================== TOKEN REFRESH ========================================: " + str(r.content))
                         return True
                     except KeyError as ex:
                         LOGGER.error("get_token Error: " + str(ex))
