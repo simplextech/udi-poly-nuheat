@@ -149,7 +149,7 @@ class Controller(polyinterface.Controller):
             refresh_token = self.polyConfig['customData']['refresh_token']
 
             _response_type = "token"
-            _scope = "openapi openid profile offline_access"
+            _scope = "openapi profile openid offline_access"
 
             headers = {'Content-Type': 'application/x-www-form-urlencoded'}
 
