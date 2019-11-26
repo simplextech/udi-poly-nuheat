@@ -36,6 +36,7 @@ class NuHeat:
                 resp = r.json()
                 return resp
             else:
+                print("get_account Error: " + str(r.content))
                 return None
         except requests.exceptions.RequestException as e:
             print("NuHeat.get_account Error: " + str(e))

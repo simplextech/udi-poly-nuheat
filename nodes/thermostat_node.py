@@ -9,53 +9,51 @@ class ThermostatNode(polyinterface.Node):
     def __init__(self, controller, primary, address, name, nuheat):
         super(ThermostatNode, self).__init__(controller, primary, address, name)
         self.NuHeat = nuheat
-        self.temperature_scale = None
-        self.temp_uom = 0
+        # self.temperature_scale = None
+        self.temp_uom = controller.temp_uom
 
     def start(self):
-        account_info = self.NuHeat.get_account()
-        if account_info is not None:
-            self.temperature_scale = account_info['temperatureScale']
+        # account_info = self.NuHeat.get_account()
+        # if account_info is not None:
+        #     self.temperature_scale = account_info['temperatureScale']
+        #
+        #     if self.temperature_scale == "Fahrenheit":
+        #         self.temp_uom = 17
+        #     else:
+        #         self.temp_uom = 4
 
-            if self.temperature_scale == "Fahrenheit":
-                self.temp_uom = 17
-            else:
-                self.temp_uom = 4
-
-            thermostats = self.NuHeat.get_thermostat()
-            if thermostats is not None:
-                for stat in thermostats:
-                    if stat['serialNumber'] == self.address:
-                        if self.temperature_scale == "Fahrenheit":
-                            clitemp = self.NuHeat.nuheat_celsius_to_fahrenheit(stat['currentTemperature'])
-                            clisph = self.NuHeat.nuheat_celsius_to_fahrenheit(stat['setPointTemp'])
-                        else:
-                            clitemp = self.NuHeat.nuheat_celsius_to_normal(stat['currentTemperature'])
-                            clisph = self.NuHeat.nuheat_celsius_to_normal(stat['setPointTemp'])
-
-                        climd = 0
-                        if stat['operatingMode'] == 1:
-                            climd = 3
-                        elif stat['operatingMode'] == 2:
-                            climd = 1
-
-                        clihcs = 0
-                        if stat['isHeating']:
-                            clihcs = 1
-                        else:
-                            clihcs = 0
-
-                        self.setDriver('ST', clitemp, uom=self.temp_uom)
-                        self.setDriver('CLISPH', clisph, uom=self.temp_uom)
-                        self.setDriver('CLIMD', climd, uom=67)
-                        self.setDriver('CLIHCS', clihcs, uom=66)
-
+        thermostats = self.NuHeat.get_thermostat()
+        if thermostats is not None:
+            for stat in thermostats:
+                if stat['serialNumber'] == self.address:
+                    # if self.temperature_scale == "Fahrenheit":
+                    if self.temp_uom == 17:
+                        clitemp = self.NuHeat.nuheat_celsius_to_fahrenheit(stat['currentTemperature'])
+                        clisph = self.NuHeat.nuheat_celsius_to_fahrenheit(stat['setPointTemp'])
                     else:
-                        polyinterface.LOGGER("Thermostat Serial Number not available")
-            else:
-                polyinterface.LOGGER("thermostat_node.Nuheat.get_thermostat: Returned None")
+                        clitemp = self.NuHeat.nuheat_celsius_to_normal(stat['currentTemperature'])
+                        clisph = self.NuHeat.nuheat_celsius_to_normal(stat['setPointTemp'])
+
+                    climd = 0
+                    if stat['operatingMode'] == 1:
+                        climd = 3
+                    elif stat['operatingMode'] == 2:
+                        climd = 1
+
+                    if stat['isHeating']:
+                        clihcs = 1
+                    else:
+                        clihcs = 0
+
+                    self.setDriver('ST', clitemp, uom=self.temp_uom)
+                    self.setDriver('CLISPH', clisph, uom=self.temp_uom)
+                    self.setDriver('CLIMD', climd, uom=67)
+                    self.setDriver('CLIHCS', clihcs, uom=66)
+
+                else:
+                    polyinterface.LOGGER("Thermostat Serial Number not available")
         else:
-            polyinterface.LOGGER.error("thermostat_node.NuHeat.account_info: Unable to retrieve account information")
+            polyinterface.LOGGER("thermostat_node.Nuheat.get_thermostat: Returned None")
 
     def query(self, command=None):
         self.start()
