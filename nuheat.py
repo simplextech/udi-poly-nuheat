@@ -195,7 +195,8 @@ class Controller(polyinterface.Controller):
     def shortPoll(self):
         if self.disco == 1:
             for node in self.nodes:
-                self.nodes[node].query()
+                if self.nodes[node].address != self.address:
+                    self.nodes[node].start()
 
     def longPoll(self):
         """
