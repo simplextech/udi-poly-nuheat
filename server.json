@@ -8,7 +8,7 @@
     "notice": "In Development - Use at your own risk",
     "shortPoll": "300",
     "longPoll": "900",
-    "testMode": true,
+    "testMode": false,
     "profile_version": "0.1.24",
     "credits": [
         {
