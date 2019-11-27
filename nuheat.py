@@ -21,7 +21,6 @@ class Controller(polyinterface.Controller):
         super(Controller, self).__init__(polyglot)
         self.name = 'NuHeat'
         # self.poly.onConfig(self.process_config)
-        # self.access_token = None
         self.server_data = {}
         self.temperature_scale = None
         self.temp_uom = None
@@ -36,7 +35,6 @@ class Controller(polyinterface.Controller):
                 self.discover()
             else:
                 self.auth_prompt()
-        # self.poly.add_custom_config_docs("<b>And this is some custom config data</b>")
 
     def get_credentials(self):
         LOGGER.info('---- Environment: ' + self.poly.stage + ' ----')
@@ -284,8 +282,6 @@ class Controller(polyinterface.Controller):
         'QUERY': query,
         'DISCOVER': discover,
         'UPDATE_PROFILE': update_profile
-        # 'REMOVE_NOTICES_ALL': remove_notices_all,
-        # 'REMOVE_NOTICE_TEST': remove_notice_test
     }
     drivers = [{'driver': 'ST', 'value': 1, 'uom': 2}]
 
