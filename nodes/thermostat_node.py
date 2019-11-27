@@ -52,7 +52,6 @@ class ThermostatNode(polyinterface.Node):
             LOGGER.error("thermostat_node.Nuheat.get_thermostat: Returned None")
 
     def query(self, command=None):
-        self.start()
         self.reportDrivers()
 
     def setpoint_heat(self, command):

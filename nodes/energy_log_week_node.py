@@ -31,7 +31,6 @@ class EnergyLogWeekNode(polyinterface.Node):
             LOGGER.error("Energy Log Week Returned: None")
 
     def query(self, command=None):
-        self.start()
         self.reportDrivers()
 
     # "Hints See: https://github.com/UniversalDevicesInc/hints"

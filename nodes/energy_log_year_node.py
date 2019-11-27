@@ -31,7 +31,6 @@ class EnergyLogYearNode(polyinterface.Node):
             polyinterface.LOGGER.error("Energy Log Year Returned: None")
 
     def query(self, command=None):
-        self.start()
         self.reportDrivers()
 
     # "Hints See: https://github.com/UniversalDevicesInc/hints"
