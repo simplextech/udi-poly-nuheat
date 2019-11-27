@@ -101,7 +101,9 @@ class Controller(polyinterface.Controller):
     def oauth(self, oauth):
         LOGGER.info('OAUTH Received: {}'.format(oauth))
         if 'code' in oauth:
-            self.get_token(oauth['code'])
+            if self.get_token(oauth['code']):
+                self.remove_notices_all()
+                self.discover()
 
     def get_token(self, code):
         _token_url = "https://identity.mynuheat.com/connect/token"
