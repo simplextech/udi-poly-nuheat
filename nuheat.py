@@ -137,7 +137,6 @@ class Controller(polyinterface.Controller):
 
                     self.saveCustomData(cust_data)
                     self.NuHeat = NuHeat(access_token)
-                    # self.access_token = access_token
                     self.remove_notices_all()
                     return True
                 except KeyError as ex:
@@ -183,7 +182,6 @@ class Controller(polyinterface.Controller):
 
                         self.saveCustomData(cust_data)
                         self.NuHeat = NuHeat(access_token)
-                        # self.access_token = access_token
                         return True
                     except KeyError as ex:
                         LOGGER.error("get_token Error: " + str(ex))
