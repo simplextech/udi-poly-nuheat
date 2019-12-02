@@ -69,7 +69,7 @@ class ThermostatNode(polyinterface.Node):
             print("thermostat_node.setpoint_heat: " + str(_status))
 
     # "Hints See: https://github.com/UniversalDevicesInc/hints"
-    # hint = [1,2,3,4]
+    hint = [1, 12, 1, 0]
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 17},
         {'driver': 'CLISPH', 'value': 0, 'uom': 17},
