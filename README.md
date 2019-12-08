@@ -12,6 +12,14 @@ Install from the Polyglot Cloud store.
 - [My NuHeat](https://mynuheat.com) Portal account
 
 #### Usage
+- For the Nodeserver to have full control of the thermostat you must change the operating mode on the 
+thermostat.  This is only available on the thermostat display.
+  - Setup -> Preferences
+  - There is an option at the bottom of the screen
+    - Operating Mode:
+  - The choice is selectable if it says "Auto" touch that and change to "Manual"
+  - Changing to "Manual" will disable ALL schedules from the NuHeat app and web interface.
+  
 - On start a notice will be created with a link to step through the NuHeat OAuth process
 - After successful authentication a Nuheat Controller node is created
   - Open the Admin Console
