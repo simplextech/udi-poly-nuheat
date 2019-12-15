@@ -18,11 +18,33 @@
         </cmds>
     </nodeDef>
 
-    <nodeDef id="THERMOSTAT" nls="tstat">
+    <nodeDef id="THERMOSTAT_F" nls="tstat">
         <editors />
         <sts>
-            <st id="ST" editor="CLITEMP" />
-            <st id="CLISPH" editor="CLISPH" />
+            <st id="ST" editor="CLITEMP_F" />
+            <st id="CLISPH" editor="CLISPH_F" />
+            <st id="CLIMD" editor="CLIMD" />
+            <st id="CLIHCS" editor="CLIHCS" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+                <cmd id="QUERY" />
+                <cmd id="CLISPH">
+                    <p id="" editor="CLISPH" init="CLISPH" />
+                </cmd>
+<!--                <cmd id="CLIMD">-->
+<!--                    <p id="" editor="CLIMD" init="CLIMD" optional="T" />-->
+<!--                </cmd>-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="THERMOSTAT_C" nls="tstat">
+        <editors />
+        <sts>
+            <st id="ST" editor="CLITEMP_C" />
+            <st id="CLISPH" editor="CLISPH_C" />
             <st id="CLIMD" editor="CLIMD" />
             <st id="CLIHCS" editor="CLIHCS" />
         </sts>
