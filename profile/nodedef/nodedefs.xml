@@ -31,7 +31,7 @@
             <accepts>
                 <cmd id="QUERY" />
                 <cmd id="CLISPH">
-                    <p id="" editor="CLISPH" init="CLISPH" />
+                    <p id="" editor="CLISPH_F" init="CLISPH" />
                 </cmd>
 <!--                <cmd id="CLIMD">-->
 <!--                    <p id="" editor="CLIMD" init="CLIMD" optional="T" />-->
@@ -53,7 +53,7 @@
             <accepts>
                 <cmd id="QUERY" />
                 <cmd id="CLISPH">
-                    <p id="" editor="CLISPH" init="CLISPH" />
+                    <p id="" editor="CLISPH_C" init="CLISPH" />
                 </cmd>
 <!--                <cmd id="CLIMD">-->
 <!--                    <p id="" editor="CLIMD" init="CLIMD" optional="T" />-->
