@@ -9,16 +9,20 @@ CMD-ctl-REMOVE_NOTICE_TEST-NAME = Remove Notice Test
 ST-ctl-ST-NAME = NodeServer Online
 
 # THERMOSTAT
-ND-THERMOSTAT-NAME = Thermostat Node
-ND-THERMOSTAT-ICON = Thermostat
-#ST-tstat-ST-NAME = Node Status
-ST-tstat-ST-NAME = Current Temperature
-ST-tstat-CLISPH-NAME = Heat Setpoint
-ST-tstat-CLIMD-NAME = Thermostat Mode
-ST-tstat-CLIHCS-NAME = Heat State
-CMD-tstat-QUERY-NAME = Query
-CMD-tstat-CLISPH-NAME = Heat SetPoint
-CMD-tstat-CLIMD-NAME = Mode
+ND-THERMOSTAT_F-NAME = Thermostat Node
+ND-THERMOSTAT_F-ICON = Thermostat
+
+ND-THERMOSTAT_C-NAME = Thermostat Node
+ND-THERMOSTAT_C-ICON = Thermostat
+
+#ST-TSTAT-ST-NAME = Node Status
+ST-TSTAT-ST-NAME = Current Temperature
+ST-TSTAT-CLISPH-NAME = Heat Setpoint
+ST-TSTAT-CLIMD-NAME = Thermostat Mode
+ST-TSTAT-CLIHCS-NAME = Heat State
+CMD-TSTAT-QUERY-NAME = Query
+CMD-TSTAT-CLISPH-NAME = Heat SetPoint
+CMD-TSTAT-CLIMD-NAME = Mode
 
 # ENERGY Day
 ND-ENERGYLOG-NAME = Energy Log Node

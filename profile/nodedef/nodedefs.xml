@@ -11,18 +11,16 @@
             <accepts>
               <cmd id="QUERY" />
               <cmd id="DISCOVER" />
-<!--              <cmd id="REMOVE_NOTICES_ALL" />-->
-<!--              <cmd id="REMOVE_NOTICE_TEST" />-->
               <cmd id="UPDATE_PROFILE" />
             </accepts>
         </cmds>
     </nodeDef>
 
-    <nodeDef id="THERMOSTAT_F" nls="tstat">
+    <nodeDef id="THERMOSTAT_F" nls="TSTAT">
         <editors />
         <sts>
-            <st id="ST" editor="CLITEMP_F" />
-            <st id="CLISPH" editor="CLISPH_F" />
+            <st id="ST" editor="_17_0" />
+            <st id="CLISPH" editor="_17_0" />
             <st id="CLIMD" editor="CLIMD" />
             <st id="CLIHCS" editor="CLIHCS" />
         </sts>
@@ -31,20 +29,17 @@
             <accepts>
                 <cmd id="QUERY" />
                 <cmd id="CLISPH">
-                    <p id="" editor="CLISPH_F" init="CLISPH" />
+                    <p id="" editor="_17_0" init="CLISPH" />
                 </cmd>
-<!--                <cmd id="CLIMD">-->
-<!--                    <p id="" editor="CLIMD" init="CLIMD" optional="T" />-->
-<!--                </cmd>-->
             </accepts>
         </cmds>
     </nodeDef>
 
-    <nodeDef id="THERMOSTAT_C" nls="tstat">
+    <nodeDef id="THERMOSTAT_C" nls="TSTAT">
         <editors />
         <sts>
-            <st id="ST" editor="CLITEMP_C" />
-            <st id="CLISPH" editor="CLISPH_C" />
+            <st id="ST" editor="_4_0" />
+            <st id="CLISPH" editor="_4_0" />
             <st id="CLIMD" editor="CLIMD" />
             <st id="CLIHCS" editor="CLIHCS" />
         </sts>
@@ -53,11 +48,8 @@
             <accepts>
                 <cmd id="QUERY" />
                 <cmd id="CLISPH">
-                    <p id="" editor="CLISPH_C" init="CLISPH" />
+                    <p id="" editor="_4_0" init="CLISPH" />
                 </cmd>
-<!--                <cmd id="CLIMD">-->
-<!--                    <p id="" editor="CLIMD" init="CLIMD" optional="T" />-->
-<!--                </cmd>-->
             </accepts>
         </cmds>
     </nodeDef>

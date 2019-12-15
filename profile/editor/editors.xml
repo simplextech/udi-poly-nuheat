@@ -4,21 +4,21 @@
         <range uom="2" subset="0,1" />
     </editor>
 
-    <editor id="CLITEMP_F">
-        <range uom="17" range="41-104" prec="0" />
-    </editor>
+<!--    <editor id="CLITEMP_F">-->
+<!--        <range uom="17" range="41-104" prec="0" />-->
+<!--    </editor>-->
 
-    <editor id="CLITEMP_C">
-        <range uom="4" range="5-40" prec="0" />
-    </editor>
+<!--    <editor id="CLITEMP_C">-->
+<!--        <range uom="4" range="5-40" prec="0" />-->
+<!--    </editor>-->
 
-    <editor id="CLISPH_F">
-        <range uom="17" min="41" max="104" step="1" prec="0" />
-    </editor>
+<!--    <editor id="CLISPH_F">-->
+<!--        <range uom="17" min="41" max="104" step="1" prec="0" />-->
+<!--    </editor>-->
 
-    <editor id="CLISPH_C">
-        <range uom="4" min="5" max="40" step="1" prec="0" />
-    </editor>
+<!--    <editor id="CLISPH_C">-->
+<!--        <range uom="4" min="5" max="40" step="1" prec="0" />-->
+<!--    </editor>-->
 
     <editor id="CLIHCS">
         <range uom="66" subset="0,1" />

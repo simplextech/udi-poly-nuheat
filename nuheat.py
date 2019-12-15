@@ -7,7 +7,8 @@ except ImportError:
 import sys
 import time
 import requests
-from nodes import ThermostatNode
+from nodes import ThermostatNode_F
+from nodes import ThermostatNode_C
 from nodes import EnergyLogDayNode
 from nodes import EnergyLogWeekNode
 from nodes import EnergyLogYearNode
@@ -226,12 +227,21 @@ class Controller(polyinterface.Controller):
             energy_log_day_address = "eld" + str(stat_address)
             energy_log_week_address = "elw" + str(stat_address)
             energy_log_year_address = "ely" + str(stat_address)
-            self.addNode(ThermostatNode(self, stat_address, stat_address, name))
+
+            if self.temp_uom == 17:
+                self.addNode(ThermostatNode_F(self, stat_address, stat_address, name))
+            elif self.temp_uom == 4:
+                self.addNode(ThermostatNode_C(self, stat_address, stat_address, name))
+            else:
+                LOGGER.error("Invalid Temperature Measure (UOM) Not Fahrenheit or Celsius")
             time.sleep(2)
+
             self.addNode(EnergyLogDayNode(self, stat_address, energy_log_day_address, "Energy-Day"))
             time.sleep(2)
+
             self.addNode(EnergyLogWeekNode(self, stat_address, energy_log_week_address, "Energy-Week"))
             time.sleep(2)
+
             self.addNode(EnergyLogYearNode(self, stat_address, energy_log_year_address, "Energy-Year"))
             time.sleep(2)
 
