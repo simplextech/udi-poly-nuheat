@@ -1,0 +1,33 @@
+# controller
+ND-controller-NAME = NuHeat Signature Controller
+ND-controller-ICON = Thermostat
+CMD-ctl-QUERY-NAME = Query
+CMD-ctl-DISCOVER-NAME = Discover
+CMD-ctl-UPDATE_PROFILE-NAME = Update Profile
+CMD-ctl-REMOVE_NOTICES_ALL-NAME = Remove All Notices
+CMD-ctl-REMOVE_NOTICE_TEST-NAME = Remove Notice Test
+ST-ctl-ST-NAME = NodeServer Online
+
+# THERMOSTAT
+ND-THERMOSTAT_F-NAME = Thermostat Node
+ND-THERMOSTAT_F-ICON = Thermostat
+
+ND-THERMOSTAT_C-NAME = Thermostat Node
+ND-THERMOSTAT_C-ICON = Thermostat
+
+#ST-TSTAT-ST-NAME = Node Status
+ST-TSTAT-ST-NAME = Current Temperature
+ST-TSTAT-CLISPH-NAME = Heat Setpoint
+ST-TSTAT-CLIMD-NAME = Thermostat Mode
+ST-TSTAT-CLIHCS-NAME = Heat State
+CMD-TSTAT-QUERY-NAME = Query
+CMD-TSTAT-CLISPH-NAME = Heat SetPoint
+CMD-TSTAT-CLIMD-NAME = Mode
+
+# ENERGY Day
+ND-ENERGYLOG-NAME = Energy Log Node
+ND-ENERGYLOG-ICON = EnergyMonitor
+ST-energylog-ST-NAME = Energy Used
+ST-energylog-GV0-NAME = Energy Minutes
+ST-energylog-GV1-NAME = Energy Cost
+CMD-energylog-QUERY-NAME = Query
