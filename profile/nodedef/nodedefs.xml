@@ -1,41 +1,41 @@
-<!-- Version 0.0.1 -->
 <nodeDefs>
-
-  <nodedef id="CONTROLLER" nls="CONTROLLER">
-    <sts>
-      <st id="ST" editor="CONTROLLER"/>
-    </sts>
-    <cmds>
-      <sends/>
-      <accepts>
-        <cmd id="DISCOVER"/>
-        <cmd id="UPDATE_PROFILE"/>
-        <cmd id="REMOVE_NOTICES"/>
-        <cmd id="QUERY"/>
-      </accepts>
-    </cmds>
-  </nodedef>
-
-  <nodeDef id="THERMOSTAT_F" nls="TSTAT">
-      <editors />
-      <sts>
-          <st id="ST" editor="_17_0" />
-          <st id="CLISPH" editor="_17_0" />
-          <st id="CLIMD" editor="CLIMD" />
-          <st id="CLIHCS" editor="CLIHCS" />
-      </sts>
-      <cmds>
-          <sends />
-          <accepts>
+    <!-- NODE DEF from 5.0 document http://wiki.universal-devices.com/index.php?title=V50_MAIN -->
+    <!-- controller, this must mach the id in your Controller class-->
+    <nodeDef id="controller" nls="ctl">
+        <editors />
+        <sts>
+			<st id="ST" editor="bool" />
+		</sts>
+        <cmds>
+            <sends />
+            <accepts>
               <cmd id="QUERY" />
-              <cmd id="CLISPH">
-                  <p id="" editor="_17_0" init="CLISPH" />
-              </cmd>
-          </accepts>
-      </cmds>
-  </nodeDef>
+              <cmd id="DISCOVER" />
+              <cmd id="UPDATE_PROFILE" />
+            </accepts>
+        </cmds>
+    </nodeDef>
 
- <nodeDef id="THERMOSTAT_C" nls="TSTAT">
+    <nodeDef id="THERMOSTAT_F" nls="TSTAT">
+        <editors />
+        <sts>
+            <st id="ST" editor="_17_0" />
+            <st id="CLISPH" editor="_17_0" />
+            <st id="CLIMD" editor="CLIMD" />
+            <st id="CLIHCS" editor="CLIHCS" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+                <cmd id="QUERY" />
+                <cmd id="CLISPH">
+                    <p id="" editor="_17_0" init="CLISPH" />
+                </cmd>
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="THERMOSTAT_C" nls="TSTAT">
         <editors />
         <sts>
             <st id="ST" editor="_4_0" />
@@ -52,6 +52,20 @@
                 </cmd>
             </accepts>
         </cmds>
-  </nodeDef>
+    </nodeDef>
 
+    <nodeDef id="ENERGYLOG" nls="energylog">
+        <editors />
+        <sts>
+            <st id="ST" editor="TPW" />
+            <st id="GV0" editor="GV0" />
+            <st id="GV1" editor="GV1" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+                <cmd id="QUERY" />
+            </accepts>
+        </cmds>
+    </nodeDef>
 </nodeDefs>

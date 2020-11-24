@@ -1,30 +1,48 @@
-# poly-template-nodejs
+# NuHeat Signature Nodeserver
 
-This is a Poly template using Node.js.
+#### Installation
 
-It works with both Polyglot V2 (On-premises installation) and Polyglot cloud.
+Install from the Polyglot Cloud store.
 
-To start developing your Nodeserver, it is easier to set up and test 
-with Polyglot V2. If you don't need such things as oAuth authentication 
-to cloud services, you can fully develop your node server on-premises. 
+#### Requirements
 
-To get started with an on-premise installation: 
-1. Install Polyglot-V2. [Instructions here](https://github.com/UniversalDevicesInc/polyglot-v2)
-2. Make sure you have Node.js & NPM installed
+- ISY994i
+- Polyglot Cloud
+- NuHeat Signature Thermostat(s)
+- [My NuHeat](https://mynuheat.com) Portal account
 
-```
-sudo apt install nodejs
-sudo apt install npm
-```
+#### Usage
+- For the Nodeserver to have full control of the thermostat you must change the operating mode on the 
+thermostat.  This is only available on the thermostat display.
+  - Setup -> Preferences
+  - There is an option at the bottom of the screen
+    - Operating Mode:
+  - The choice is selectable if it says "Auto" touch that and change to "Manual"
+  - Changing to "Manual" will disable ALL schedules from the NuHeat app and web interface.
+  
+- On start a notice will be created with a link to step through the NuHeat OAuth process
+- After successful authentication a Nuheat Controller node is created
+  - Open the Admin Console
+  - Select the Nuheat Controller
+  - Click Discover
+  - This will connect to the NuHeat API and discover your connected thermostats
+  - Two nodes should be created.  One for the Thermostat and One for daily energy information
+  - If the energy node is not created click discover again as there is sometimes a timing issue with cloud services
+ 
+- Energy Use information depends on what you have configured for each thermostat within the NuHeat configuration.
+This can be done through the NuHeat web interface.
+  - [My NuHeat](https://mynuheat.com) Portal
 
-3. Install this node server
+- Timezone configuration is used to get the correct data for Energy Log retrieval.  Enter
+your timezone in the Polyglot configuration based upon your location or close enough
+to be in the same Day.  A list of acceptable timezones is available here
+  - [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
-```
-cd ~/.polyglot/nodeservers
-git clone https://github.com/UniversalDevicesInc/poly-template-nodejs
-npm install
-```
+#### Features
+- Creates Thermostat nodes
+- Creates Energy Log node for the daily usage
 
-For help developing your node server, refer to the [node.js polyinterface documentation here](https://github.com/UniversalDevicesInc/polyglot-v2-nodejs-interface)
-
-To get instructions for the cloud version, refer to the [node.js PGC documentation here](https://github.com/UniversalDevicesInc/pgc-nodejs-interface)
+#### Limitations
+- Scheduling is not configurable through the Nodeserver
+- Mode setting (away) is not yet configurable
+- Tested against a single NuHeat Signature Thermostat.
